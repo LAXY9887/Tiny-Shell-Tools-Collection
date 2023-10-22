@@ -105,7 +105,7 @@ BAMTOOL:/staging/biology/ls807terra/0_Programs/bamtools/build/bin/bamtools
 
 ## Tool collections
 
-**1. getRegionBeforeNK.sh** 
+### **1. getRegionBeforeNK.sh** 
 
 `getRegionBeforeNK.sh` is a script that processes a BED file and generate a new one that is upstream N bps.
 
@@ -113,7 +113,7 @@ BAMTOOL:/staging/biology/ls807terra/0_Programs/bamtools/build/bin/bamtools
 
 *Example:* `getRegionBeforeNK.sh 3000 Test.bed > Test_upstream3k.bed`
 
-**2. Configure pipline path**
+### **2. Configure pipline path**
 
 This tool helps configuring a customized RNA-seq pipline script of mine.
 
