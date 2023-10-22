@@ -1,7 +1,7 @@
 # Tiny-Shell-Tools-Collection
 This repo is a collection of simple shell scripts that aids data processing.
 
-## Update 2023-10-22
+**Update 2023-10-22**
 
 ## What's new?
 
@@ -15,7 +15,9 @@ The `0_Configure_Setting.sh` script will parse the settings in the configure fil
 
 *Usage & example:* `0_Configure_Setting.sh c.0_RNAseq_QuantTERRA.cfg`
 
-**Notice!** All pipeline scripts, `c.0_RNAseq_QuantTERRA.cfg` and `0_Configure_Setting.sh` should be under the same directory.
+### **Notice!** 
+
+All pipeline scripts, `c.0_RNAseq_QuantTERRA.cfg` and `0_Configure_Setting.sh` should be under the same directory.
 
 The format of the configure file is as follow:
 
@@ -77,6 +79,29 @@ THNTER:/staging/biology/ls807terra/0_Programs/anaconda3/envs/telomereHunter/bin/
 # BAM tools for BAM merge
 BAMTOOL:/staging/biology/ls807terra/0_Programs/bamtools/build/bin/bamtools
 ```
+### Configure file's Rules: 
+
+1. To comment or annotate, please add a "#" at the start of a line.
+
+2. Format -> TOOL_ID:/path/to/Software , separated by ":".
+
+3. Please update the software path if they were changed.
+
+4. To rigister a new tool and its path:
+
+-> 4.1 In a pipeline script (file name: *_ps_*.sh), write:
+ 	       ''' software="TOOL_ID"
+ 	           # To use the software
+ 	           ${software} -options [files] ... '''
+
+-> 4.2 In this configure file, write:
+ 	       ''' TOOL_ID:/path/to/this/tool
+
+-> 4.3 Run the script: sh 0_Configure_Setting.sh this_configure_file.cfg
+	       This will reconginze the "TOOL_ID" in a script and replace it by "/path/to/this/tool"
+
+5. Make sure that all pipeline script (file name: *_ps_*.sh) are in the same directory with 0_Configure_Setting.sh and this configure file.
+
 
 ## Tool collections
 
@@ -87,3 +112,13 @@ BAMTOOL:/staging/biology/ls807terra/0_Programs/bamtools/build/bin/bamtools
 *Usage:* `getRegionBeforeNK.sh [range] [input BED file]`
 
 *Example:* `getRegionBeforeNK.sh 3000 Test.bed > Test_upstream3k.bed`
+
+**2. Configure pipline path**
+
+This tool helps configuring a customized RNA-seq pipline script of mine.
+
+Any variables, includes software paths, slurm settings, genome index, region BED files, etc., can be recorded in the `c.0_RNAseq_QuantTERRA.cfg` file.
+
+The `0_Configure_Setting.sh` script will parse the settings in the configure file and automatically edit all pipeline scripts to the user's settings.
+
+*Usage & example:* `0_Configure_Setting.sh c.0_RNAseq_QuantTERRA.cfg`
