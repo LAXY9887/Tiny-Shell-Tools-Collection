@@ -27,10 +27,10 @@ Example output content `Merge.txt`
 
 |Gene|File1.txt|File2.txt|File3.txt|
 |----|----|----|----|
-|GeneA 1|0|5|
-|GeneB 5|7|4|
-|GeneC 5|1|3|
-|GeneD 9|0|2|
+|GeneA 1|0|5|21|
+|GeneB 5|7|4|0|
+|GeneC 5|1|3|1|
+|GeneD 9|0|2|9|
 
 ## Tool collections
 
